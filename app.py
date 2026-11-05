@@ -3,6 +3,17 @@ import pandas as pd
 from rapidfuzz import fuzz
 
 st.set_page_config(page_title="Agente de Conciliación Bancaria", layout="wide")
+import streamlit as st
+
+st.set_page_config(page_title="Agente de Conciliación Bancaria", layout="wide")
+
+# --- SISTEMA DE CONTRASEÑA PRIVADA ---
+password_ingresada = st.sidebar.text_input("Ruben.1994.Juan", type="password")
+CONTRASENA_CORRECTA = "MiClaveSecreta123" # Puedes cambiarla por la que prefieras
+
+if password_ingresada != CONTRASENA_CORRECTA:
+    st.warning("🔒 Por favor, introduce la contraseña correcta en la barra lateral para acceder al agente de conciliación.")
+    st.stop() # Esto frena la ejecución de toda la app si la clave es incorrecta
 
 st.title("🏦 Agente de Conciliación Bancaria Inteligente")
 st.write("Sube tus archivos de extracto bancario y libro mayor para emparejar transacciones automáticamente.")
